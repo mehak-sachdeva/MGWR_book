@@ -7,7 +7,7 @@ The model has been explored and tested for multiple parameters on real and simul
 
 **Notebook Outline:**  
   
-**[Introduction Notebook (current)](Poisson_MGWR.ipynb)**
+**[Introduction (current)](Poisson_MGWR.ipynb)**
 - [Introduction](#Introduction)
  - [Introduction to the problem](#Introduction-to-the-project)
  - [Important Equations](#Statistical-Equations) 
@@ -15,49 +15,49 @@ The model has been explored and tested for multiple parameters on real and simul
 - [References](#References)
 
 **[Initial module changes and univariate model check ](http://mehak-sachdeva.github.io/MGWR_book/Html/Poisson_MGWR_univariate_check)**
-- [Setup with libraries](#Set-up-Cells)
-- [Fundamental equations for Poisson MGWR](#Fundamental-equations-for-Poisson-MGWR)
-- [Example Dataset](#Example-Dataset)
-- [Helper functions](#Helper-functions)
-- [Univariate example](#Univariate-example)
-    - [Parameter check](#Parameter-check)
-    - [Bandwidths check](#Bandwidths-check)
+- Setup with libraries
+- Fundamental equations for Poisson MGWR
+- Example Dataset
+- Helper functions
+- Univariate example
+    - Parameter check
+    - Bandwidths check
 
 **[Simulated Data example](http://mehak-sachdeva.github.io/MGWR_book/Html/Simulated_data_example_Poisson-MGWR)**
-- [Setup with libraries](#Set-up-Cells)
-- [Create Simulated Dataset](#Create-Simulated-Dataset)
-    - [Forming independent variables](#Forming-independent-variables)
-    - [Creating y variable with Poisson distribution](#Creating-y-variable-with-Poisson-distribution)
-- [Univariate example](#Univariate-example)
-    - [Bandwidth: Random initialization check](#Bandwidth:-Random-initialization-check)
-    - [Parameters check](#Parameters-check)
-- [Multivariate example](#Multivariate-example)
-    - [Bandwidths: Random initialization check](#Bandwidths:-Random-initialization-check)
-    - [Parameters check](#Parameters-check)
-- [Global model parameter check](#Global-model-parameter-check)
+- Setup with libraries
+- Create Simulated Dataset
+    - Forming independent variables
+    - Creating y variable with Poisson distribution
+- Univariate example
+    - Bandwidth: Random initialization check
+    - Parameters check
+- Multivariate example
+    - Bandwidths: Random initialization check
+    - Parameters check
+- Global model parameter check
  
 **[Real Data example](http://mehak-sachdeva.github.io/MGWR_book/Html/Real_data_example_Poisson-MGWR)**
 
-- [Setup with libraries](#Set-up-Cells)
-- [Tokyo Mortality Dataset](#Tokyo-Mortality-Dataset)
-- [Univariate example](#Univariate-example)
-    - [Bandwidth: Random initialization check](#Bandwidth:-Random-initialization-check)
-    - [Parameter check](Parameter-check)
-- [Multivariate example](#Multivariate-example)
-    [Bandwidths: Random initialization check](#Bandwidths:-Random-initialization-check)
-- [MGWR bandwidths](#MGWR-bandwidths)
-- [AIC, AICc, BIC check](#AIC,-AICc,-BIC-check)
+- Setup with libraries
+- Tokyo Mortality Dataset
+- Univariate example
+    - Bandwidth: Random initialization check
+    - Parameter check
+- Multivariate example
+    Bandwidths: Random initialization check
+- MGWR bandwidths
+- AIC, AICc, BIC check
 
 **[Monte Carlo Simulation Visualization](http://mehak-sachdeva.github.io/MGWR_book/Html/Poisson_MGWR_MonteCarlo_Results)**
  
-- [Setup with libraries](#Set-up-Cell)
-- [List bandwidths from pickles](#List-bandwidths-from-pickles)
-- [Parameter functions](#Parameter-functions)
-- [GWR bandwidth](#GWR-bandwidth)
-- [MGWR bandwidths](#MGWR-bandwidths)
-- [AIC, AICc, BIC check](#AIC,-AICc,-BIC-check)
-    - [AIC, AICc, BIC Boxplots for comparison](#AIC,-AICc,-BIC-Boxplots-for-comparison)
-- [Parameter comparison from MGWR and GWR](#Parameter-comparison-from-MGWR-and-GWR)
+- Setup with libraries
+- List bandwidths from pickles
+- Parameter functions
+- GWR bandwidth
+- MGWR bandwidths
+- AIC, AICc, BIC check
+    - AIC, AICc, BIC Boxplots for comparison
+- Parameter comparison from MGWR and GWR
 
 ---
 
