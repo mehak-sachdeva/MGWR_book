@@ -23,7 +23,7 @@ The model has been explored and tested for multiple parameters on real and simul
     - [Parameter check](#Parameter-check)
     - [Bandwidths check](#Bandwidths-check)
 
-**[Simulated Data example](Simulated_data_example_Poisson-MGWR.ipynb)**
+**[Simulated Data example](http://mehak-sachdeva.github.io/MGWR_book/Html/Simulated_data_example_Poisson-MGWR)**
 - [Setup with libraries](#Set-up-Cells)
 - [Create Simulated Dataset](#Create-Simulated-Dataset)
     - [Forming independent variables](#Forming-independent-variables)
@@ -36,7 +36,7 @@ The model has been explored and tested for multiple parameters on real and simul
     - [Parameters check](#Parameters-check)
 - [Global model parameter check](#Global-model-parameter-check)
  
-**[Real Data example](Real_data_example_Poisson-MGWR.ipynb)**
+**[Real Data example](http://mehak-sachdeva.github.io/MGWR_book/Html/Real_data_example_Poisson-MGWR)**
 
 - [Setup with libraries](#Set-up-Cells)
 - [Tokyo Mortality Dataset](#Tokyo-Mortality-Dataset)
@@ -48,7 +48,7 @@ The model has been explored and tested for multiple parameters on real and simul
 - [MGWR bandwidths](#MGWR-bandwidths)
 - [AIC, AICc, BIC check](#AIC,-AICc,-BIC-check)
 
-**[Monte Carlo Simulation Visualization](Poisson_MGWR_MonteCarlo_Results.ipynb)**
+**[Monte Carlo Simulation Visualization](http://mehak-sachdeva.github.io/MGWR_book/Html/Poisson_MGWR_MonteCarlo_Results)**
  
 - [Setup with libraries](#Set-up-Cell)
 - [List bandwidths from pickles](#List-bandwidths-from-pickles)
