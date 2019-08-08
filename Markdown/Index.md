@@ -1,141 +1,104 @@
 
-# Jupyter Site
-
-JupyterSite allows you to easily build a suite of rendered documents from Jupyter
-notebooks. Jupyter notebooks go in, html/markdown pages, PDFs, slideshows, and tex
-comes out. If you use this in a Github repository, it will even build a Github pages
-site. This also shows how to make the notebooks easily accessible in Julia.
-
-It just takes one button, simplifying the entire process. The `publish.sh` file
-does all the heavy lifting, showing you how to do all of this (any of the conversions
-can be disabled by commenting out the appropriate lines).
-
-## Example Site
-
-An example of the product this package generates can be found at: https://github.com/UCIDataScienceInitiative/IntroToJulia . 
-
-The site that this generates is: http://UCIDataScienceInitiative.github.io/IntroToJulia/
-
-## Installation
-
-To use this, first install Jupyter (note: Python must be installed)
-
-```bash
-pip install jupyter
-```
-
-For the PDF output to work, a distribution of LaTeX must be installed. Also, we
-will need pandoc:
-
-```bash
-pip install pandoc
-```
-
-## Using the Package
-
-### Downloading the Template
-
-The easiest way to get started is to clone the package repository using Git:
-
-```bash
-git clone https://github.com/ChrisRackauckas/JupyterSite
-```
-
-### The Notebooks
-
-The files which the site is built from are the notebooks that are included in
-the Notebooks folder. The `Index.ipynb` file build the site index (the first
-page shown in the webpage) and additional `.ipynb` files are rendered in the various
-forms. Thus to add your own content, simply add the `.ipynb` files to this directory.
-
-Note that notebooks have to be setup for slides in order for the slideshow to work.
-Inside the notebook, use view > CellToolbar > Slideshow and set the appropriate blocks
-to slides.
-
-### Building The Site
-
-To build the site files, use the `publish.sh` file. To do so, go to the top directory
-of the repository and use the command:
-
-```bash
-sh publish.sh
-```
-
-If your Git is correctly setup, this will render the files and upload the files to
-Github. Upon success, your `index.html` will be available at:
-
-```
-http://<github-username>.github.io/<repository-name>/
-```
-
-For example, my user name is ChrisRackauckas and this repository is named JupyterSite.
-Therefore the site for that this makes is at
-
-```
-http://ChrisRackauckas.github.io/JupyterSite/
-```
-
-For organizations, the user name is replaced with the organization name.
-
-#### Caveat
-
-Note that PDF output is not compatible with the usage of Markdown images (though
-code with images will allow the PDFs to build, but the images will not appear).
-
-## Easy Usage from Julia
-
-This repository is also setup as a Julia package repository. To have users easily
-open up the Jupyter notebooks, they can use the commands from within Julia:
+# Multiscale Geographically Weighted Regression - Poisson dependent variable
 
 
-```julia
-Pkg.add("IJulia") # use once to install IJulia
-Pkg.clone("https://github.com/ChrisRackauckas/JupyterSite") # Change this to your Github repo
-using IJulia
-notebook(dir=Pkg.dir("JupyterSite")*"/Notebooks")
-```
-
-This will open up the Jupyter notebook at the location of your notebooks
-
-### Additional Feature: Continuous Integration Testing
-
-One can use Julia's continuous integration testing framework to test your notebooks.
-To do so, check out [this blog post](http://www.stochasticlifestyle.com/finalizing-julia-package-documentation-testing-coverage-publishing/)
-for how to setup Julia CI and [NBinclude.jl](https://github.com/stevengj/NBInclude.jl) for how
-to include notebook files into Julia. Use this to add tests to the test/runtests.jl
-file. To run the tests locally, use the commands
+The model has been explored and tested for multiple parameters on real and simulated datasets. The research includes the following outline with separate notebooks for each part.
 
 
-```julia
-Pkg.test("JupyterSite")
-```
+**Notebook Outline:**  
+  
+**[Introduction Notebook (current)](Poisson_MGWR.ipynb)**
+- [Introduction](#Introduction)
+ - [Introduction to the problem](#Introduction-to-the-project)
+ - [Important Equations](#Statistical-Equations) 
+- [Approaches Explored](#Approaches-Explored)
+- [References](#References)
 
-# Example Output
+**[Initial module changes and univariate model check ](Poisson_MGWR_univariate_check.ipynb)**
+- [Setup with libraries](#Set-up-Cells)
+- [Fundamental equations for Poisson MGWR](#Fundamental-equations-for-Poisson-MGWR)
+- [Example Dataset](#Example-Dataset)
+- [Helper functions](#Helper-functions)
+- [Univariate example](#Univariate-example)
+    - [Parameter check](#Parameter-check)
+    - [Bandwidths check](#Bandwidths-check)
 
-The example notebooks can be found at:
+**[Simulated Data example](Simulated_data_example_Poisson-MGWR.ipynb)**
+- [Setup with libraries](#Set-up-Cells)
+- [Create Simulated Dataset](#Create-Simulated-Dataset)
+    - [Forming independent variables](#Forming-independent-variables)
+    - [Creating y variable with Poisson distribution](#Creating-y-variable-with-Poisson-distribution)
+- [Univariate example](#Univariate-example)
+    - [Bandwidth: Random initialization check](#Bandwidth:-Random-initialization-check)
+    - [Parameters check](#Parameters-check)
+- [Multivariate example](#Multivariate-example)
+    - [Bandwidths: Random initialization check](#Bandwidths:-Random-initialization-check)
+    - [Parameters check](#Parameters-check)
+- [Global model parameter check](#Global-model-parameter-check)
+ 
+**[Real Data example](Real_data_example_Poisson-MGWR.ipynb)**
 
-https://github.com/ChrisRackauckas/JupyterSite/blob/master/Notebooks
+- [Setup with libraries](#Set-up-Cells)
+- [Tokyo Mortality Dataset](#Tokyo-Mortality-Dataset)
+- [Univariate example](#Univariate-example)
+    - [Bandwidth: Random initialization check](#Bandwidth:-Random-initialization-check)
+    - [Parameter check](Parameter-check)
+- [Multivariate example](#Multivariate-example)
+    [Bandwidths: Random initialization check](#Bandwidths:-Random-initialization-check)
+- [MGWR bandwidths](#MGWR-bandwidths)
+- [AIC, AICc, BIC check](#AIC,-AICc,-BIC-check)
 
-## HTML
+**[Monte Carlo Simulation Visualization](Poisson_MGWR_MonteCarlo_Results.ipynb)**
+ 
+- [Setup with libraries](#Set-up-Cell)
+- [List bandwidths from pickles](#List-bandwidths-from-pickles)
+- [Parameter functions](#Parameter-functions)
+- [GWR bandwidth](#GWR-bandwidth)
+- [MGWR bandwidths](#MGWR-bandwidths)
+- [AIC, AICc, BIC check](#AIC,-AICc,-BIC-check)
+    - [AIC, AICc, BIC Boxplots for comparison](#AIC,-AICc,-BIC-Boxplots-for-comparison)
+- [Parameter comparison from MGWR and GWR](#Parameter-comparison-from-MGWR-and-GWR)
 
-https://chrisrackauckas.github.io/JupyterSite/
+---
 
-https://chrisrackauckas.github.io/JupyterSite/Html/GithubIntroduction.html
+# Introduction
 
-## Slides
+## Introduction to the project
 
-https://chrisrackauckas.github.io/JupyterSite/Slides/Index.html
+A recent addition to the local statistical models in PySAL is the implementation of Multiscale Geographically Weighted Regression (MGWR) model, a multiscale extension to the widely used approach for modeling process spatial heterogeneity - Geographically Weighted Regression (GWR). GWR is a local spatial multivariate statistical modeling technique embedded within the regression framework that is calibrated and estimates covariate parameters at each location using borrowed data from neighboring observations. The extent of neighboring observations used for calibration is interpreted as the indicator of scale for the spatial processes and is assumed to be constant across covariates in GWR. MGWR, using a back-fitting algorithm relaxes the assumption that all processes being modeled operate at the same spatial scale and estimates a unique indicator of scale for each process.
+The GWR model in PySAL can currently estimate Gaussian, Poisson and Logistic models though the MGWR model is currently limited to only Gaussian models. This project aims to expand the MGWR model to nonlinear local spatial regression modeling techniques where the response outcomes may be discrete (following a Poisson distribution). This will enable a richer and holistic local statistical modeling framework to model multi-scale process heterogeneity for the open source community.
 
-https://chrisrackauckas.github.io/JupyterSite/Slides/GithubIntroduction.html
+## Statistical Equations
 
-## Markdown
+A conventional Poisson regression model is written as:
 
-https://github.com/ChrisRackauckas/JupyterSite/tree/master/Markdown
+\begin{align}
+O_i ~ Poisson[E_i exp ({\sum} {\beta} & _k x _{k,i})] \\
+\end{align}
 
-## LaTeX
+where  $x_{k,1}$ is the kth explanatory variable in place i and the ${\beta}_ks$ are the parameters and Poisson indicates a Poisson distribution with mean $\lambda$.
 
-https://github.com/ChrisRackauckas/JupyterSite/tree/master/Tex
+Nakaya et.al. (2005) introduced the concept of allowing parameter values to vary with geographical location ($u_i$), which is a vector of two dimensional co-ordinates describing the location i. The Poisson model for geographically varying parameters can be written as:
 
-## PDF
+\begin{align}
+O_i ~ Poisson[E_i exp ({\sum} {\beta} & _k (u_i) x _{k,i})] \\
+\end{align}
 
-https://github.com/ChrisRackauckas/JupyterSite/tree/master/Pdfs
+The Geographically Weighted Poisson Regression model (GWPR) is estimated using a modified local Fisher scoring procedure, a form of iteratively reweighted least squares (IRLS). In this procedure, the following matrix computation of weighted least squares should be repeated to update parameter estimates until they converge (Nakaya et.al., 2005):
+
+\begin{align}
+\beta^{(l+1)} (u_i) = (X^{t} W (u_i) A(u_i)^{(l)} X)^{-1} X^{t} W (u_i) A (u_i) ^{(l)} z (u_i){(l)} \\
+\end{align}
+
+# Approaches Explored
+
+# References
+
+1. Fotheringham, A. S., Yang, W., & Kang, W. (2017). Multiscale Geographically Weighted Regression (MGWR). Annals of the American Association of Geographers, 107(6), 1247–1265. https://doi.org/10.1080/24694452.2017.1352480
+
+
+2. Nakaya, T., Fotheringham, A. S., Brunsdon, C., & Charlton, M. (2005). Geographically weighted Poisson regression for disease association mapping. Statistics in Medicine, 24(17), 2695–2717. https://doi.org/10.1002/sim.2129
+
+
+3. Yu, H., Fotheringham, A. S., Li, Z., Oshan, T., Kang, W., & Wolf, L. J. (2019). Inference in Multiscale Geographically Weighted Regression. Geographical Analysis, gean.12189. https://doi.org/10.1111/gean.12189
+
