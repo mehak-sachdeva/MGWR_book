@@ -14,7 +14,7 @@ The model has been explored and tested for multiple parameters on real and simul
 - [Approaches Explored](#Approaches-Explored)
 - [References](#References)
 
-**[Initial module changes and univariate model check ](Poisson_MGWR_univariate_check.ipynb)**
+**[Initial module changes and univariate model check ](https://mehak-sachdeva.github.io/MGWR_book/Html/Poisson_MGWR_univariate_check.html)**
 - [Setup with libraries](#Set-up-Cells)
 - [Fundamental equations for Poisson MGWR](#Fundamental-equations-for-Poisson-MGWR)
 - [Example Dataset](#Example-Dataset)
