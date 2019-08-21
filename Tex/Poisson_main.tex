@@ -149,7 +149,7 @@
     \renewcommand{\LaTeX}{\textrm{\Oldlatex}}
     % Document parameters
     % Document title
-    \title{Index}
+    \title{Poisson\_main}
     
     
     
@@ -290,14 +290,29 @@
     
 
     
-    \#
+    \section{Multiscale Geographically Weighted Regression - Poisson
+dependent
+variable}\label{multiscale-geographically-weighted-regression---poisson-dependent-variable}
 
-Generalized Modeling and Predictions in Multiscale Geographically
-Weighted Regression
+The model has been explored and tested for multiple parameters on real
+and simulated datasets. The research includes the following outline with
+separate notebooks for each part.
+
+\textbf{Notebook Outline:}
+
+\textbf{\href{Poisson_MGWR.ipynb}{Introduction (current)}} -
+Section \ref{introduction} - Section \ref{introduction-to-the-project} -
+Section \ref{statistical-equations} - Section \ref{approaches-explored}
+- Section \ref{other-notebooks} - Section \ref{references}
 
     \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
-    \subsubsection{Proposal Abstract:}\label{proposal-abstract}
+\section{Introduction}\label{introduction}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\subsection{Introduction to the
+problem}\label{introduction-to-the-problem}
 
 A recent addition to the local statistical models in PySAL is the
 implementation of Multiscale Geographically Weighted Regression (MGWR)
@@ -311,115 +326,184 @@ used for calibration is interpreted as the indicator of scale for the
 spatial processes and is assumed to be constant across covariates in
 GWR. MGWR, using a back-fitting algorithm relaxes the assumption that
 all processes being modeled operate at the same spatial scale and
-estimates a unique indicator of scale for each process.
+estimates a unique indicator of scale for each process. The GWR model in
+PySAL can currently estimate Gaussian, Poisson and Logistic models
+though the MGWR model is currently limited to only Gaussian models. This
+project aims to expand the MGWR model to nonlinear local spatial
+regression modeling techniques where the response outcomes may be
+discrete (following a Poisson distribution). This will enable a richer
+and holistic local statistical modeling framework to model multi-scale
+process heterogeneity for the open source community.
 
-The GWR model in PySAL can currently estimate Gaussian, Poisson and
-Logistic models though the MGWR model is currently limited to only
-Gaussian models. This project aims to expand the MGWR model to nonlinear
-local spatial regression modeling techniques where the response outcomes
-may be discrete (following a Poisson distribution) or binary (Logistic
-models). This will enable a richer and holistic local statistical
-modeling framework to model multi-scale process heterogeneity for the
-open source community. In addition, to support efficient testing for
-different model implementations, a simulated data generator module will
-be implemented to supply test datasets following unique model variable
-distribution needs. This will also provide a foundation for possible
-expansion to test other local model implementations in PySAL. GWR has
-been widely used as a tool for spatial prediction and has been known to
-be informative on the spatial processes generating the data being
-predicted (Harris et al., 2010). While the GWR implementation in PySAL
-facilitates the predictions for the dependent variable at unsampled
-locations, this functionality has not been implemented for MGWR yet.
-This project aims to also enable the prediction functionality for MGWR
-and solve for its growing need in the open source community
-(https://github.com/pysal/mgwr/issues/51). In doing so, open issues
-around predictions in GWR (for e.g.
-https://github.com/pysal/mgwr/issues/50) will also be resolved.
+\subsection{Statistical Equations}\label{statistical-equations}
 
-    \subsubsection{Deliverables (Completed and
-ongoing):}\label{deliverables-completed-and-ongoing}
+A conventional Poisson regression model is written as:
 
-\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+\begin{align}
+O_i {\sim} Poisson[E_i exp ({\sum} {\beta} & _k x _{k,i})] \\
+\end{align}
 
-\begin{enumerate}
+where \(x_{k,1}\) is the kth explanatory variable in place i and the
+\({\beta}_ks\) are the parameters and Poisson indicates a Poisson
+distribution with mean \(\lambda\).
+
+Nakaya et.al. (2005) introduced the concept of allowing parameter values
+to vary with geographical location (\(u_i\)), which is a vector of two
+dimensional co-ordinates describing the location \emph{i}. The Poisson
+model for geographically varying parameters can be written as:
+
+\begin{align}
+O_i {\sim} Poisson[E_i exp ({\sum} {\beta} & _k (u_i) x _{k,i})] \\
+\end{align}
+
+The Geographically Weighted Poisson Regression model (GWPR) is estimated
+using a modified local Fisher scoring procedure, a form of iteratively
+reweighted least squares (IRLS). In this procedure, the following matrix
+computation of weighted least squares should be repeated to update
+parameter estimates until they converge (Nakaya et.al., 2005):
+
+\begin{align}
+\beta^{(l+1)} (u_i) = (X^{t} W (u_i) A(u_i)^{(l)} X)^{-1} X^{t} W (u_i) A (u_i) ^{(l)} z (u_i){(l)} \\
+\end{align}
+
+    \section{Approaches Explored}\label{approaches-explored}
+
+    \textbf{Expected theoretical model calibration:} The calibration
+methodology for modeling response variables with a Poisson distribution
+in MGWR, through references from Geographically Weighted Poisson
+Regression (GWPR) (Nakaya, et al., 2005) and literature on Generalized
+Additive Models (Hastie \& Tibshirani, 1986), is expected to be as
+follows:
+
+    \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
-  Expansion of MGWR model to Poisson dependent variables (Completed)
-
-  \begin{itemize}
-  \item
-    \href{https://github.com/pysal/mgwr/pull/72}{Final Pull Request in
-    pysal/mgwr} 
-  \item
-    \href{http://localhost:8889/notebooks/Notebooks/Index.ipynb}{Introduction
-    and comprehensive tests with real and simulated datasets}
-  \end{itemize}
+  Initialize using GWPR estimates \$𝛽\_𝑘(𝑢\_𝑖)\^{}0:
+  f\textsuperscript{1\_0,f}2\_0, \ldots{} , f\^{}𝐾\_0, \$ where
+  \(f_𝑘^0 = (𝑥_{1 𝑘}𝛽_𝑘(𝑢_1)^0 … 𝑥_{𝑁𝑘}𝛽_𝑘(𝑢_𝑁)^0)\)
 \item
-  Expansion of MGWR model to Binomial dependent variables (Ongoing)
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \href{http://localhost:8889/notebooks/Notebooks/Index.ipynb}{Introduction
-    to approaches attempted and comprehensive tests with real and
-    simulated datasets}
-  \end{itemize}
+  Update for each location (\(𝑢_𝑖\)) an adjusted dependent variable:
+  \(z(𝑢_𝑖)^{(𝑙)} = (z_1(𝑢_𝑖)^{(𝑙)}, z_2(𝑢_𝑖)^{(𝑙)}, … ,z_𝑁(𝑢_𝑖)^{(𝑙)})^𝑡\)
+  \(z_𝑗(𝑢_𝑖)^{(𝑙)} = Σ𝛽_𝑘(𝑢_𝑖)^{(𝑙)} 𝑥_{𝑗,𝑘} + O_𝑗 − Ô_𝑗(𝛽(𝑢_𝑖)^{(𝑙)}) / Ô_𝑗(𝛽(𝑢_𝑖)^{(𝑙)})\)
 \item
-  Predictions in GWR and MGWR (Ongoing)
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \href{https://github.com/pysal/mgwr/commits/gsoc19}{All development
-    commits through the coding period}
-  \end{itemize}
+  Construct weights as follows: \(A(𝑢_𝑖)^{(𝑙)}\) which is a diagonal
+  matrix with values
+  (\(Ô_1(𝛽( 𝑢_𝑖)^{(𝑙)}), Ô_2(𝛽( 𝑢_𝑖)^{(𝑙)}), ... ,Ô_𝑁(𝛽(𝑢_𝑖)^{(𝑙)}))\)
+\item
+  Fit an MGWR model to \(z(𝑢_𝑖)^{(𝑙)}\) to update \(𝛽_𝑘(𝑢_𝑖)\) and
+  \(z(𝑢_𝑖)^{(𝑙)}\), using the new weight matrix:
+  \(𝑊_𝑘∗(𝑢_𝑖)^{(𝑙)}=𝑊_𝑘(𝑢_𝑖)^{(𝑙)} A(𝑢_𝑖)^{(𝑙)}\)
+\item
+  Repeat steps (2) through (4) until convergence.
 \end{enumerate}
 
-    \subsubsection{Personal Information}\label{personal-information}
+    \section{Other notebooks}\label{other-notebooks}
+
+    Below are links to the tests and exploration for the finalized MGWR
+model for Poisson dependent variables:
+
+    \subsection{Tests with real and simulated
+data}\label{tests-with-real-and-simulated-data}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
-\textbf{Sub organization information}: Python Spatial Analysis Library
-(PySAL)
+    \textbf{\href{http://mehak-sachdeva.github.io/MGWR_book/Html/Poisson_MGWR_univariate_check}{Initial
+module changes and univariate model check}} - Setup with libraries -
+Fundamental equations for Poisson MGWR - Example Dataset - Helper
+functions - Univariate example - Parameter check - Bandwidths check
 
-\textbf{Mentors:} Levi John Wolf, Wei Kang, Taylor Oshan
+\textbf{\href{http://mehak-sachdeva.github.io/MGWR_book/Html/Simulated_data_example_Poisson-MGWR}{Simulated
+Data example}} - Setup with libraries - Create Simulated Dataset -
+Forming independent variables - Creating y variable with Poisson
+distribution - Univariate example - Bandwidth: Random initialization
+check - Parameters check - Multivariate example - Bandwidths: Random
+initialization check - Parameters check - Global model parameter check
 
-\textbf{Student Information:}
-
-\textbf{Name:} Mehak Sachdeva
-
-\textbf{Github username:} mehak-sachdeva
-
-\textbf{Email:} msachde1@asu.edu
-
-\textbf{Mobile:} +1-857-206-9743
-
-\textbf{Time zone:} MST -- Mountain Standard Time / Mountain Time
-
-\textbf{GSoC Blog RSS Feed URL:}
-https://blogs.python-gsoc.org/en/mehaksachdevas-blog/
-
-    \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
-
-    \subsubsection{References:}\label{references}
+\textbf{\href{http://mehak-sachdeva.github.io/MGWR_book/Html/Real_data_example_Poisson-MGWR}{Real
+Data example}}
 
 \begin{itemize}
+\tightlist
 \item
-  Harris, P., Fotheringham, A. S., Crespo, R., \& Charlton, M. (2010).
-  The Use of Geographically Weighted Regression for Spatial Prediction:
-  An Evaluation of Models Using Simulated Data Sets. Mathematical
-  Geosciences, 42(6), 657--680.
-  https://doi.org/10.1007/s11004-010-9284-7 
+  Setup with libraries
 \item
-  Hastie, T., \& Tibshirani, R. (1986). Generalized Additive Models.
-  Statistical Science, 1(3), 297--310.
-  https://doi.org/10.1214/ss/1177013604
+  Tokyo Mortality Dataset
+\item
+  Univariate example
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Bandwidth: Random initialization check
+  \item
+    Parameter check
+  \end{itemize}
+\item
+  Multivariate example Bandwidths: Random initialization check
+\item
+  MGWR bandwidths
+\item
+  AIC, AICc, BIC check
+\end{itemize}
+
+    \subsection{Monte Carlo Test}\label{monte-carlo-test}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+    \textbf{\href{http://mehak-sachdeva.github.io/MGWR_book/Html/Poisson_MGWR_MonteCarlo_Results}{Monte
+Carlo Simulation Visualization}}
+
+\begin{itemize}
+\tightlist
+\item
+  Setup with libraries
+\item
+  List bandwidths from pickles
+\item
+  Parameter functions
+\item
+  GWR bandwidth
+\item
+  MGWR bandwidths
+\item
+  AIC, AICc, BIC check
+
+  \begin{itemize}
+  \tightlist
+  \item
+    AIC, AICc, BIC Boxplots for comparison
+  \end{itemize}
+\item
+  Parameter comparison from MGWR and GWR
+\end{itemize}
+
+    \section{References}\label{references}
+
+    \begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Fotheringham, A. S., Yang, W., \& Kang, W. (2017). Multiscale
+  Geographically Weighted Regression (MGWR). Annals of the American
+  Association of Geographers, 107(6), 1247--1265.
+  https://doi.org/10.1080/24694452.2017.1352480
 \item
   Nakaya, T., Fotheringham, A. S., Brunsdon, C., \& Charlton, M. (2005).
   Geographically weighted Poisson regression for disease association
   mapping. Statistics in Medicine, 24(17), 2695--2717.
   https://doi.org/10.1002/sim.2129
-\end{itemize}
+\item
+  Yu, H., Fotheringham, A. S., Li, Z., Oshan, T., Kang, W., \& Wolf, L.
+  J. (2019). Inference in Multiscale Geographically Weighted Regression.
+  Geographical Analysis, gean.12189. https://doi.org/10.1111/gean.12189
+\item
+  Hastie, T., \& Tibshirani, R. (1986). Generalized Additive Models.
+  Statistical Science, 1(3), 297--310.
+  https://doi.org/10.1214/ss/1177013604
+\item
+  Wood, S. N. (2006). Generalized additive models\,: an introduction
+  with R. Chapman \& Hall/CRC.
+\end{enumerate}
 
 
     % Add a bibliography block to the postdoc
