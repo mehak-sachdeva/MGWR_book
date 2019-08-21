@@ -1,65 +1,13 @@
-
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta charset="utf-8" />
 
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="chrome=1" />
-
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-
-<title>Index slides</title>
+<title>Poisson_main</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
-<!-- General and theme style sheets -->
-<link rel="stylesheet" href="reveal.js/css/reveal.css">
-<link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
 
-<!-- If the query includes 'print-pdf', include the PDF print sheet -->
-<script>
-if( window.location.search.match( /print-pdf/gi ) ) {
-        var link = document.createElement( 'link' );
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = 'reveal.js/css/print/pdf.css';
-        document.getElementsByTagName( 'head' )[0].appendChild( link );
-}
-
-</script>
-
-<!--[if lt IE 9]>
-<script src="reveal.js/lib/js/html5shiv.js"></script>
-<![endif]-->
-
-<!-- Loading the mathjax macro -->
-<!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-            processEscapes: true,
-            processEnvironments: true
-        },
-        // Center justify equations in code and markdown cells. Elsewhere
-        // we use CSS to left justify single line equations in code cells.
-        displayAlign: 'center',
-        "HTML-CSS": {
-            styles: {'.MathJax_Display': {"margin": 0}},
-            linebreaks: { automatic: true }
-        }
-    });
-    </script>
-    <!-- End of mathjax configuration -->
-
-<!-- Get Font-awesome from cdn -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
 <style type="text/css">
     /*!
@@ -13112,295 +13060,275 @@ ul.typeahead-list  > li > a.pull-right {
 
 <style type="text/css">
 /* Overrides of notebook CSS for static HTML export */
-.reveal {
-  font-size: 160%;
+body {
+  overflow: visible;
+  padding: 8px;
 }
-.reveal pre {
-  width: inherit;
-  padding: 0.4em;
-  margin: 0px;
-  font-family: monospace, sans-serif;
-  font-size: 80%;
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
-}
-.reveal pre code {
-  padding: 0px;
-}
-.reveal section img {
-  border: 0px solid black;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
-}
-.reveal i {
-  font-style: normal;
-  font-family: FontAwesome;
-  font-size: 2em;
-}
-.reveal .slides {
-  text-align: left;
-}
-.reveal.fade {
-  opacity: 1;
-}
-.reveal .progress {
-  position: static;
-}
-.reveal .controls .navigate-left,
-.reveal .controls .navigate-left.enabled {
-  border-right-color: #727272;
-}
-.reveal .controls .navigate-left.enabled:hover,
-.reveal .controls .navigate-left.enabled.enabled:hover {
-  border-right-color: #dfdfdf;
-}
-.reveal .controls .navigate-right,
-.reveal .controls .navigate-right.enabled {
-  border-left-color: #727272;
-}
-.reveal .controls .navigate-right.enabled:hover,
-.reveal .controls .navigate-right.enabled.enabled:hover {
-  border-left-color: #dfdfdf;
-}
-.reveal .controls .navigate-up,
-.reveal .controls .navigate-up.enabled {
-  border-bottom-color: #727272;
-}
-.reveal .controls .navigate-up.enabled:hover,
-.reveal .controls .navigate-up.enabled.enabled:hover {
-  border-bottom-color: #dfdfdf;
-}
-.reveal .controls .navigate-down,
-.reveal .controls .navigate-down.enabled {
-  border-top-color: #727272;
-}
-.reveal .controls .navigate-down.enabled:hover,
-.reveal .controls .navigate-down.enabled.enabled:hover {
-  border-top-color: #dfdfdf;
-}
-.reveal .progress span {
-  background: #727272;
-}
-div.input_area {
-  padding: 0.06em;
-}
-div.code_cell {
-  background-color: transparent;
-}
-div.prompt {
-  width: 11ex;
-  padding: 0.4em;
-  margin: 0px;
-  font-family: monospace, sans-serif;
-  font-size: 80%;
-  text-align: right;
-}
-div.output_area pre {
-  font-family: monospace, sans-serif;
-  font-size: 80%;
-}
-div.output_prompt {
-  /* 5px right shift to account for margin in parent container */
-  margin: 5px 5px 0 0;
-}
-div.text_cell.rendered .rendered_html {
-  /* The H1 height seems miscalculated, we are just hidding the scrollbar */
-  overflow-y: hidden;
-}
-a.anchor-link {
-  /* There is still an anchor, we are only hidding it */
-  display: none;
-}
-.rendered_html p {
-  text-align: inherit;
-}
-::-webkit-scrollbar
-{
-  width: 6px;
-  height: 6px;
-}
-::-webkit-scrollbar *
-{
-  background:transparent;
-}
-::-webkit-scrollbar-thumb
-{
-  background: #727272 !important;
+
+div#notebook {
+  overflow: visible;
+  border-top: none;
+}@media print {
+  div.cell {
+    display: block;
+    page-break-inside: avoid;
+  } 
+  div.output_wrapper { 
+    display: block;
+    page-break-inside: avoid; 
+  }
+  div.output { 
+    display: block;
+    page-break-inside: avoid; 
+  }
 }
 </style>
 
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
 <link rel="stylesheet" href="custom.css">
 
-</head>
-
-
-<body>
-
-
-<div class="reveal">
-<div class="slides">
-<section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1><center> Generalized Modeling and Predictions in Multiscale Geographically Weighted Regression <center></h1>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Proposal-Abstract:">Proposal Abstract:<a class="anchor-link" href="#Proposal-Abstract:">&#182;</a></h3><p align="justify"> A recent addition to the local statistical models in PySAL is the implementation of Multiscale Geographically Weighted Regression (MGWR) model, a multiscale extension to the widely used approach for modeling process spatial heterogeneity - Geographically Weighted Regression (GWR). GWR is a local spatial multivariate statistical modeling technique embedded within the regression framework that is calibrated and estimates covariate parameters at each location using borrowed data from neighboring observations. The extent of neighboring observations used for calibration is interpreted as the indicator of scale for the spatial processes and is assumed to be constant across covariates in GWR. MGWR, using a back-fitting algorithm relaxes the assumption that all processes being modeled operate at the same spatial scale and estimates a unique indicator of scale for each process.<br>
-
-The GWR model in PySAL can currently estimate Gaussian, Poisson and Logistic models though the MGWR model is currently limited to only Gaussian models. This project aims to expand the MGWR model to nonlinear local spatial regression modeling techniques where the response outcomes may be discrete (following a Poisson distribution) or binary (Logistic models). This will enable a richer and holistic local statistical modeling framework to model multi-scale process heterogeneity for the open source community. In addition, to support efficient testing for different model implementations, a simulated data generator module will be implemented to supply test datasets following unique model variable distribution needs. This will also provide a foundation for possible expansion to test other local model implementations in PySAL. GWR has been widely used as a tool for spatial prediction and has been known to be informative on the spatial processes generating the data being predicted (Harris et al., 2010). While the GWR implementation in PySAL facilitates the predictions for the dependent variable at unsampled locations, this functionality has not been implemented for MGWR yet. This project aims to also enable the prediction functionality for MGWR and solve for its growing need in the open source community (https://github.com/pysal/mgwr/issues/51). In doing so, open issues around predictions in GWR (for e.g. https://github.com/pysal/mgwr/issues/50) will also be resolved. </p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Deliverables-(Completed-and-ongoing):">Deliverables (Completed and ongoing):<a class="anchor-link" href="#Deliverables-(Completed-and-ongoing):">&#182;</a></h3><hr>
-<ol>
-<li><p>Expansion of MGWR model to Poisson dependent variables  (<font color=blue>Completed</font>)</p>
-<ul>
-<li><p><a href="https://github.com/pysal/mgwr/pull/72">Final Pull Request in pysal/mgwr</a> <br><br></p>
-</li>
-<li><p><a href="http://localhost:8889/notebooks/Notebooks/Index.ipynb">Introduction and comprehensive tests with real and simulated datasets</a></p>
-</li>
-</ul>
-</li>
-</ol>
-<ol>
-<li><p>Expansion of MGWR model to Binomial dependent variables  (<font color=red>Ongoing</font>)</p>
-<ul>
-<li><a href="http://localhost:8889/notebooks/Notebooks/Index.ipynb">Introduction to approaches attempted and comprehensive tests with real and simulated datasets</a><br><br></li>
-</ul>
-</li>
-<li><p>Predictions in GWR and MGWR  (<font color=red>Ongoing</font>)</p>
-<ul>
-<li><a href="https://github.com/pysal/mgwr/commits/gsoc19">All development commits through the coding period</a></li>
-</ul>
-</li>
-</ol>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Personal-Information">Personal Information<a class="anchor-link" href="#Personal-Information">&#182;</a></h3><hr>
-<p><strong>Sub organization information</strong>: Python Spatial Analysis Library (PySAL)<br></p>
-<p><strong>Mentors:</strong> Levi John Wolf, Wei Kang, Taylor Oshan</p>
-<p><strong>Student Information:</strong></p>
-<p><strong>Name:</strong> Mehak Sachdeva</p>
-<p><strong>Github username:</strong> mehak-sachdeva</p>
-<p><strong>Email:</strong> msachde1@asu.edu</p>
-<p><strong>Mobile:</strong> +1-857-206-9743</p>
-<p><strong>Time zone:</strong> MST – Mountain Standard Time / Mountain Time</p>
-<p><strong>GSoC Blog RSS Feed URL:</strong> <a href="https://blogs.python-gsoc.org/en/mehaksachdevas-blog/">https://blogs.python-gsoc.org/en/mehaksachdevas-blog/</a></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="References:">References:<a class="anchor-link" href="#References:">&#182;</a></h3><ul>
-<li><p>Harris, P., Fotheringham, A. S., Crespo, R., &amp; Charlton, M. (2010). The Use of Geographically Weighted Regression for Spatial Prediction: An Evaluation of Models Using Simulated Data Sets. Mathematical Geosciences, 42(6), 657–680. <a href="https://doi.org/10.1007/s11004-010-9284-7">https://doi.org/10.1007/s11004-010-9284-7</a> <br><br></p>
-</li>
-<li><p>Hastie, T., &amp; Tibshirani, R. (1986). Generalized Additive Models. Statistical Science, 1(3), 297–310. <a href="https://doi.org/10.1214/ss/1177013604">https://doi.org/10.1214/ss/1177013604</a><br><br></p>
-</li>
-<li><p>Nakaya, T., Fotheringham, A. S., Brunsdon, C., &amp; Charlton, M. (2005). Geographically weighted Poisson regression for disease association mapping. Statistics in Medicine, 24(17), 2695–2717. <a href="https://doi.org/10.1002/sim.2129">https://doi.org/10.1002/sim.2129</a></p>
-</li>
-</ul>
-
-</div>
-</div>
-</div></section></section>
-</div>
-</div>
-
-<script>
-
-require(
-    {
-      // it makes sense to wait a little bit when you are loading
-      // reveal from a cdn in a slow connection environment
-      waitSeconds: 15
-    },
-    [
-      "reveal.js/lib/js/head.min.js",
-      "reveal.js/js/reveal.js"
-    ],
-
-    function(head, Reveal){
-
-        // Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
-        Reveal.initialize({
-            controls: true,
-            progress: true,
-            history: true,
-
-            transition: "slide",
-
-            // Optional libraries used to extend on reveal.js
-            dependencies: [
-                { src: "reveal.js/lib/js/classList.js",
-                  condition: function() { return !document.body.classList; } },
-                { src: "reveal.js/plugin/notes/notes.js",
-                  async: true,
-                  condition: function() { return !!document.body.classList; } }
-            ]
-        });
-
-        var update = function(event){
-          if(MathJax.Hub.getAllJax(Reveal.getCurrentSlide())){
-            MathJax.Hub.Rerender(Reveal.getCurrentSlide());
-          }
-        };
-
-        Reveal.addEventListener('slidechanged', update);
-
-        function setScrollingSlide() {
-            var scroll = false
-            if (scroll === true) {
-              var h = $('.reveal').height() * 0.95;
-              $('section.present').find('section')
-                .filter(function() {
-                  return $(this).height() > h;
-                })
-                .css('height', 'calc(95vh)')
-                .css('overflow-y', 'scroll')
-                .css('margin-top', '20px');
-            }
+<!-- Loading mathjax macro -->
+<!-- Load mathjax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
         }
+    });
+    </script>
+    <!-- End of mathjax configuration --></head>
+<body>
+  <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
 
-        // check and set the scrolling slide every time the slide change
-        Reveal.addEventListener('slidechanged', setScrollingSlide);
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Multiscale-Geographically-Weighted-Regression---Poisson-dependent-variable">Multiscale Geographically Weighted Regression - Poisson dependent variable<a class="anchor-link" href="#Multiscale-Geographically-Weighted-Regression---Poisson-dependent-variable">&#182;</a></h1><p>The model has been explored and tested for multiple parameters on real and simulated datasets. The research includes the following outline with separate notebooks for each part.</p>
+<p><strong>Notebook Outline:</strong></p>
+<p><strong><a href="Poisson_MGWR.ipynb">Introduction (current)</a></strong></p>
+<ul>
+<li><a href="#Introduction">Introduction</a><ul>
+<li><a href="#Introduction-to-the-project">Introduction to the problem</a></li>
+<li><a href="#Statistical-Equations">Statistical Equations</a> </li>
+</ul>
+</li>
+<li><a href="#Approaches-Explored">Approaches Explored</a></li>
+<li><a href="#Other-notebooks">Other notebooks</a></li>
+<li><a href="#References">References</a></li>
+</ul>
 
-    }
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h1><hr>
+<h2 id="Introduction-to-the-problem">Introduction to the problem<a class="anchor-link" href="#Introduction-to-the-problem">&#182;</a></h2><p>A recent addition to the local statistical models in PySAL is the implementation of Multiscale Geographically Weighted Regression (MGWR) model, a multiscale extension to the widely used approach for modeling process spatial heterogeneity - Geographically Weighted Regression (GWR). GWR is a local spatial multivariate statistical modeling technique embedded within the regression framework that is calibrated and estimates covariate parameters at each location using borrowed data from neighboring observations. The extent of neighboring observations used for calibration is interpreted as the indicator of scale for the spatial processes and is assumed to be constant across covariates in GWR. MGWR, using a back-fitting algorithm relaxes the assumption that all processes being modeled operate at the same spatial scale and estimates a unique indicator of scale for each process.
+The GWR model in PySAL can currently estimate Gaussian, Poisson and Logistic models though the MGWR model is currently limited to only Gaussian models. This project aims to expand the MGWR model to nonlinear local spatial regression modeling techniques where the response outcomes may be discrete (following a Poisson distribution). This will enable a richer and holistic local statistical modeling framework to model multi-scale process heterogeneity for the open source community.</p>
+<h2 id="Statistical-Equations">Statistical Equations<a class="anchor-link" href="#Statistical-Equations">&#182;</a></h2><p>A conventional Poisson regression model is written as:</p>
+\begin{align}
+O_i {\sim} Poisson[E_i exp ({\sum} {\beta} &amp; _k x _{k,i})] \\
+\end{align}<p>where  $x_{k,1}$ is the kth explanatory variable in place i and the ${\beta}_ks$ are the parameters and Poisson indicates a Poisson distribution with mean $\lambda$.</p>
+<p>Nakaya et.al. (2005) introduced the concept of allowing parameter values to vary with geographical location ($u_i$), which is a vector of two dimensional co-ordinates describing the location <em>i</em>. The Poisson model for geographically varying parameters can be written as:</p>
+\begin{align}
+O_i {\sim} Poisson[E_i exp ({\sum} {\beta} &amp; _k (u_i) x _{k,i})] \\
+\end{align}<p>The Geographically Weighted Poisson Regression model (GWPR) is estimated using a modified local Fisher scoring procedure, a form of iteratively reweighted least squares (IRLS). In this procedure, the following matrix computation of weighted least squares should be repeated to update parameter estimates until they converge (Nakaya et.al., 2005):</p>
+\begin{align}
+\beta^{(l+1)} (u_i) = (X^{t} W (u_i) A(u_i)^{(l)} X)^{-1} X^{t} W (u_i) A (u_i) ^{(l)} z (u_i){(l)} \\
+\end{align}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Approaches-Explored">Approaches Explored<a class="anchor-link" href="#Approaches-Explored">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Expected theoretical model calibration:</strong><br><br>
+The calibration methodology for modeling response variables with a Poisson distribution in MGWR, through references from Geographically Weighted Poisson Regression (GWPR) (Nakaya, et al., 2005) and literature on Generalized Additive Models (Hastie &amp; Tibshirani, 1986), is expected to be as follows:<br></p>
 
-);
-</script>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>Initialize using GWPR estimates $𝛽_𝑘(𝑢_𝑖)^0: f^1_0,f^2_0, … , f^𝐾_0, $ 
+ where $f_𝑘^0 = (𝑥_{1 𝑘}𝛽_𝑘(𝑢_1)^0 … 𝑥_{𝑁𝑘}𝛽_𝑘(𝑢_𝑁)^0)$<br><br></li>
+<li>Update for each location ($𝑢_𝑖$) an adjusted dependent variable: <br>
+ $z(𝑢_𝑖)^{(𝑙)} = (z_1(𝑢_𝑖)^{(𝑙)}, z_2(𝑢_𝑖)^{(𝑙)}, … ,z_𝑁(𝑢_𝑖)^{(𝑙)})^𝑡$<br> 
+ $z_𝑗(𝑢_𝑖)^{(𝑙)} = Σ𝛽_𝑘(𝑢_𝑖)^{(𝑙)} 𝑥_{𝑗,𝑘} + O_𝑗 − Ô_𝑗(𝛽(𝑢_𝑖)^{(𝑙)}) / Ô_𝑗(𝛽(𝑢_𝑖)^{(𝑙)})$<br><br></li>
+<li>Construct weights as follows:
+ $A(𝑢_𝑖)^{(𝑙)}$ which is a diagonal matrix with values ($Ô_1(𝛽(
+𝑢_𝑖)^{(𝑙)}), Ô_2(𝛽(
+𝑢_𝑖)^{(𝑙)}), ... ,Ô_𝑁(𝛽(𝑢_𝑖)^{(𝑙)}))$<br><br></li>
+<li>Fit an MGWR model to $z(𝑢_𝑖)^{(𝑙)}$ to update $𝛽_𝑘(𝑢_𝑖)$ and $z(𝑢_𝑖)^{(𝑙)}$, using the new weight matrix:<br>
+$𝑊_𝑘∗(𝑢_𝑖)^{(𝑙)}=𝑊_𝑘(𝑢_𝑖)^{(𝑙)} A(𝑢_𝑖)^{(𝑙)}$<br><br></li>
+<li>Repeat steps (2) through (4) until convergence.</li>
+</ol>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Other-notebooks">Other notebooks<a class="anchor-link" href="#Other-notebooks">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Below are links to the tests and exploration for the finalized MGWR model for Poisson dependent variables:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Tests-with-real-and-simulated-data">Tests with real and simulated data<a class="anchor-link" href="#Tests-with-real-and-simulated-data">&#182;</a></h2><hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong><a href="http://mehak-sachdeva.github.io/MGWR_book/Html/Poisson_MGWR_univariate_check">Initial module changes and univariate model check </a></strong></p>
+<ul>
+<li>Setup with libraries</li>
+<li>Fundamental equations for Poisson MGWR</li>
+<li>Example Dataset</li>
+<li>Helper functions</li>
+<li>Univariate example<ul>
+<li>Parameter check</li>
+<li>Bandwidths check</li>
+</ul>
+</li>
+</ul>
+<p><strong><a href="http://mehak-sachdeva.github.io/MGWR_book/Html/Simulated_data_example_Poisson-MGWR">Simulated Data example</a></strong></p>
+<ul>
+<li>Setup with libraries</li>
+<li>Create Simulated Dataset<ul>
+<li>Forming independent variables</li>
+<li>Creating y variable with Poisson distribution</li>
+</ul>
+</li>
+<li>Univariate example<ul>
+<li>Bandwidth: Random initialization check</li>
+<li>Parameters check</li>
+</ul>
+</li>
+<li>Multivariate example<ul>
+<li>Bandwidths: Random initialization check</li>
+<li>Parameters check</li>
+</ul>
+</li>
+<li>Global model parameter check</li>
+</ul>
+<p><strong><a href="http://mehak-sachdeva.github.io/MGWR_book/Html/Real_data_example_Poisson-MGWR">Real Data example</a></strong></p>
+<ul>
+<li>Setup with libraries</li>
+<li>Tokyo Mortality Dataset</li>
+<li>Univariate example<ul>
+<li>Bandwidth: Random initialization check</li>
+<li>Parameter check</li>
+</ul>
+</li>
+<li>Multivariate example
+  Bandwidths: Random initialization check</li>
+<li>MGWR bandwidths</li>
+<li>AIC, AICc, BIC check</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Monte-Carlo-Test">Monte Carlo Test<a class="anchor-link" href="#Monte-Carlo-Test">&#182;</a></h2><hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong><a href="http://mehak-sachdeva.github.io/MGWR_book/Html/Poisson_MGWR_MonteCarlo_Results">Monte Carlo Simulation Visualization</a></strong></p>
+<ul>
+<li>Setup with libraries</li>
+<li>List bandwidths from pickles</li>
+<li>Parameter functions</li>
+<li>GWR bandwidth</li>
+<li>MGWR bandwidths</li>
+<li>AIC, AICc, BIC check<ul>
+<li>AIC, AICc, BIC Boxplots for comparison</li>
+</ul>
+</li>
+<li>Parameter comparison from MGWR and GWR</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="References">References<a class="anchor-link" href="#References">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>Fotheringham, A. S., Yang, W., &amp; Kang, W. (2017). Multiscale Geographically Weighted Regression (MGWR). Annals of the American Association of Geographers, 107(6), 1247–1265. <a href="https://doi.org/10.1080/24694452.2017.1352480">https://doi.org/10.1080/24694452.2017.1352480</a></li>
+</ol>
+<ol>
+<li>Nakaya, T., Fotheringham, A. S., Brunsdon, C., &amp; Charlton, M. (2005). Geographically weighted Poisson regression for disease association mapping. Statistics in Medicine, 24(17), 2695–2717. <a href="https://doi.org/10.1002/sim.2129">https://doi.org/10.1002/sim.2129</a></li>
+</ol>
+<ol>
+<li>Yu, H., Fotheringham, A. S., Li, Z., Oshan, T., Kang, W., &amp; Wolf, L. J. (2019). Inference in Multiscale Geographically Weighted Regression. Geographical Analysis, gean.12189. <a href="https://doi.org/10.1111/gean.12189">https://doi.org/10.1111/gean.12189</a></li>
+</ol>
+<ol>
+<li>Hastie, T., &amp; Tibshirani, R. (1986). Generalized Additive Models. Statistical Science, 1(3), 297–310. <a href="https://doi.org/10.1214/ss/1177013604">https://doi.org/10.1214/ss/1177013604</a></li>
+</ol>
+<ol>
+<li>Wood, S. N. (2006). Generalized additive models : an introduction with R. Chapman &amp; Hall/CRC.</li>
+</ol>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
 </body>
+
+ 
 
 
 </html>
