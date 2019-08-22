@@ -8,7 +8,6 @@
     - [Parameter check](Parameter-check)
 - [Multivariate example](#Multivariate-example)
     [Bandwidths: Random initialization check](#Bandwidths:-Random-initialization-check)
-- [MGWR bandwidths](#MGWR-bandwidths)
 - [AIC, AICc, BIC check](#AIC,-AICc,-BIC-check)
 
 Branch - gsco19

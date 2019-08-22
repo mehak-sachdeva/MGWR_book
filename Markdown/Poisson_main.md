@@ -1,5 +1,5 @@
 
-# Multiscale Geographically Weighted Regression - Poisson dependent variable
+# <center>Multiscale Geographically Weighted Regression - Poisson dependent variable</center>
 
 
 The model has been explored and tested for multiple parameters on real and simulated datasets. The research includes the following outline with separate notebooks for each part.
@@ -139,3 +139,8 @@ Below are links to the tests and exploration for the finalized MGWR model for Po
 
 
 5. Wood, S. N. (2006). Generalized additive models : an introduction with R. Chapman & Hall/CRC.
+
+
+```python
+
+```
