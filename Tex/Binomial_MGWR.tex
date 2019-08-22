@@ -357,16 +357,15 @@ Following the technique from (Hastie \& Tibshirani, 1986), for logisitic
 generalized additive models the model was estimated using the local
 scoring algorithm as follows:
 
-\begin{itemize}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
   Initialize the current estimate of the additive predictor
-  \(n_i^{old}\): \(n_i^{old} = {\sum} {\beta}_k X_k\)
-
-  and the probability such P(Y=1):
-  \(p_i^{old} = exp({n_i^{old}})/(1+exp({n_i^{old}}))\) 
+  \(n_i^{old}\):\(n_i^{old} = {\sum} {\beta}_k X_k\)and the probability
+  such P(Y=1): \(p_i^{old} = exp({n_i^{old}})/(1+exp({n_i^{old}}))\) 
 \item
   Compute the working response:
-
   \(z_i = n_i^{old} + (y_i - p_i^{old})/(p_i^{old}(1-p_i^{old}))\)
 \item
   compute weights \(w_i = p_i^{old} (1-p_i^{old})\)
@@ -374,7 +373,7 @@ scoring algorithm as follows:
   obtain \(n_i^{new}\) by fitting a weighted additive model to \(z_i\).
   In this the smoothers in the backfitting algorithm incorporate the
   additional weights and GWR is used for the linear parts.
-\end{itemize}
+\end{enumerate}
 
 These steps are repeated until the relative change in the fitted
 coefficients and the functions is below a tolerance threshold (1e-05 in

@@ -13283,20 +13283,13 @@ l = log_b ( p / (1-p)) = ({\sum} {\beta} &amp; _k x _{k,i}) \\
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Local-Scoring-Algorithm">Local Scoring Algorithm<a class="anchor-link" href="#Local-Scoring-Algorithm">&#182;</a></h1><hr>
 <p>Following the technique from (Hastie &amp; Tibshirani, 1986), for logisitic generalized additive models the model was estimated using the local scoring algorithm as follows:</p>
-<ul>
-<li><p>Initialize the current estimate of the additive predictor $n_i^{old}$:<br>
-  $n_i^{old} = {\sum} {\beta}_k  X_k$</p>
-<p>and the probability such P(Y=1): $p_i^{old} = exp({n_i^{old}})/(1+exp({n_i^{old}}))$ <br><br></p>
-</li>
-<li><p>Compute the working response: <br></p>
-<p>$z_i = n_i^{old} + (y_i - p_i^{old})/(p_i^{old}(1-p_i^{old}))$<br><br></p>
-</li>
-<li><p>compute weights $w_i = p_i^{old} (1-p_i^{old})$</p>
-</li>
-</ul>
-<ul>
+<ol>
+<li>Initialize the current estimate of the additive predictor $n_i^{old}$:<br>$n_i^{old} = {\sum} {\beta}_k  X_k$<br>and the probability such P(Y=1): $p_i^{old} = exp({n_i^{old}})/(1+exp({n_i^{old}}))$ <br><br></li>
+<li>Compute the working response: <br>
+$z_i = n_i^{old} + (y_i - p_i^{old})/(p_i^{old}(1-p_i^{old}))$<br><br></li>
+<li>compute weights $w_i = p_i^{old} (1-p_i^{old})$<br><br></li>
 <li>obtain $n_i^{new}$ by fitting a weighted additive model to $z_i$. In this the smoothers in the backfitting algorithm incorporate the additional weights and GWR is used for the linear parts.<br><br></li>
-</ul>
+</ol>
 <p>These steps are repeated until the relative change in the fitted coefficients and the functions is below a tolerance threshold (1e-05 in this case).</p>
 <p>Reference for these equations: <a href="http://ugrad.stat.ubc.ca/~nancy/526_2003/projects/kazi2.pdf">http://ugrad.stat.ubc.ca/~nancy/526_2003/projects/kazi2.pdf</a></p>
 

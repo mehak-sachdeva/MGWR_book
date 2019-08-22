@@ -14,20 +14,12 @@ The GWR model in PySAL can currently estimate Gaussian, Poisson and Logistic mod
 
 ***
 
-1. Expansion of MGWR model to Poisson dependent variables  (<font color=blue>Completed</font>)
-
-    - **[Final Pull Request in pysal/mgwr](https://github.com/pysal/mgwr/pull/72)** <br><br>
-    
-    - **[Introduction and comprehensive tests with real and simulated datasets](http://mehak-sachdeva.github.io/MGWR_book/Html/Poisson_main)**
-    
-
-
-2. Expansion of MGWR model to Binomial dependent variables  (<font color=red>Ongoing</font>)
-
+1. Expansion of MGWR model to Poisson dependent variables  (<font color=blue>Completed</font>)<br>
+    - **[Final Pull Request in pysal/mgwr](https://github.com/pysal/mgwr/pull/72)** <br><br> 
+    - **[Introduction and comprehensive tests with real and simulated datasets](http://mehak-sachdeva.github.io/MGWR_book/Html/Poisson_main)**<br><br>
+2. Expansion of MGWR model to Binomial dependent variables  (<font color=red>Ongoing</font>)<br>
     - **[Introduction to approaches attempted and comprehensive tests with real and simulated datasets](http://mehak-sachdeva.github.io/MGWR_book/Html/Binomial_MGWR)**<br><br>
-
-3. Predictions in GWR and MGWR  (<font color=red>Ongoing</font>)
-
+3. Predictions in GWR and MGWR  (<font color=red>Ongoing</font>)<br>
     - **[All development commits through the coding period](https://github.com/pysal/mgwr/commits/gsoc19)**
 
 ### Personal Information
