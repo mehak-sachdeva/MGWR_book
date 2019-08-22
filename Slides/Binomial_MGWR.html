@@ -13285,13 +13285,13 @@ l = log_b ( p / (1-p)) = ({\sum} {\beta} &amp; _k x _{k,i}) \\
 <p>Following the technique from (Hastie &amp; Tibshirani, 1986), for logisitic generalized additive models the model was estimated using the local scoring algorithm as follows:</p>
 <ol>
 <li><p>Initialize the current estimate of the additive predictor $n_i^{old}$:<br>
- $n_i^{old} = Σ 𝛽_k  X_k$</p>
+ $n_i^{old} = {\sum} {\beta}_k  X_k$</p>
 <p>and the probability such P(Y=1): $p_i^{old} = exp({n_i^{old}})/(1+exp({n_i^{old}}))$ <br><br></p>
 </li>
 <li><p>Compute the working response: <br></p>
 <p>$z_i = n_i^{old} + (y_i - p_i^{old})/(p_i^{old}(1-p_i^{old}))$<br><br></p>
 </li>
-<li><p>compute weights $w_i = p_i^{old} (1-p_i^{old})$<br><br></p>
+<li><p>compute weights $w_i = p_i^{old} (1-p_i^{old})$</p>
 </li>
 </ol>
 <ol>

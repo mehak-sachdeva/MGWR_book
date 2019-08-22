@@ -53,7 +53,7 @@ $p = (b^ {𝛽_0 + 𝛽_1 x_1 + 𝛽_2 x_2}) / (b^ {𝛽_0 + 𝛽_1 x_1 + 𝛽_2
 Following the technique from (Hastie & Tibshirani, 1986), for logisitic generalized additive models the model was estimated using the local scoring algorithm as follows:
 
 1. Initialize the current estimate of the additive predictor $n_i^{old}$:<br>
-    $n_i^{old} = Σ 𝛽_k  X_k$ 
+    $n_i^{old} = {\sum} {\beta}_k  X_k$ 
     
     and the probability such P(Y=1): $p_i^{old} = exp({n_i^{old}})/(1+exp({n_i^{old}}))$ <br><br>
     
@@ -61,7 +61,7 @@ Following the technique from (Hastie & Tibshirani, 1986), for logisitic generali
 
     $z_i = n_i^{old} + (y_i - p_i^{old})/(p_i^{old}(1-p_i^{old}))$<br><br>
     
-3. compute weights $w_i = p_i^{old} (1-p_i^{old})$<br><br>
+3. compute weights $w_i = p_i^{old} (1-p_i^{old})$
 
 
 4. obtain $n_i^{new}$ by fitting a weighted additive model to $z_i$. In this the smoothers in the backfitting algorithm incorporate the additional weights and GWR is used for the linear parts.<br><br>
