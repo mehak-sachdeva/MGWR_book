@@ -13140,14 +13140,14 @@ div#notebook {
 <h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h1><hr>
 <h2 id="Introduction-to-the-problem">Introduction to the problem<a class="anchor-link" href="#Introduction-to-the-problem">&#182;</a></h2><p>As prefaced earlier, the Geographically Weighted Regression model in PySAL can currently estimate Gaussian, Poisson and Logistic models though the Multiscale extension of the GWR model is currently limited to only Gaussian models. This part of the project aims to expand the MGWR model to nonlinear local spatial regression modeling techniques where the response outcomes may be binomial (or a Logit model). This will enable a richer and holistic local statistical modeling framework to model multi-scale process heterogeneity for the open source community.</p>
 <h2 id="Statistical-Equations">Statistical Equations<a class="anchor-link" href="#Statistical-Equations">&#182;</a></h2><hr>
-<p>A conventional Logistic regression model with $x_1, x_2, ... ,x_k$ as predictors, a binary(Bernoulli) response variable y and <em>l</em> denoting the log-odds if the event that y=1, can be written as:</p>
+<p>A conventional Logistic regression model with $x_1, x_2, ... ,x_k$ as predictors, a binary(Bernoulli) response variable y and l denoting the log-odds of the event that y=1, can be written as:</p>
 \begin{align}
 l = log_b ( p / (1-p)) = ({\sum} {\beta} &amp; _k x _{k,i}) \\
-\end{align}<p>where  $x_{k,1}$ is the kth explanatory variable in place i, ${\beta}_ks$ are the parameters and p is the probability such that p = P( Y = 1 ).</p>
+\end{align}<p>where  $x_{k,1}$ is the kth explanatory variable in place i, $𝛽_{ks}$ are the parameters and p is the probability such that p = P( Y = 1 ).</p>
 <p>By exponentiating the log-odds:</p>
-<p>$p / (1-p) = b^ {{\beta_0}+{\beta_1}x_1+{\beta_2}x_2}$</p>
+<p>$p / (1-p) = b^ {𝛽_0+𝛽_1 x_1+𝛽_2 x_2} $</p>
 <p>It follows from this - the probability that Y = 1 is:</p>
-<p>$p = (b^ {{\beta_0}+{\beta_1}x_1+{\beta_2}x_2}) / (b^ {{\beta_0}+{\beta_1}x_1+{\beta_2}x_2} + 1)$ = $1 / (1 + b^ {{-\beta_0}+{\beta_1}x_1+{\beta_2}x_2})$</p>
+<p>$p = (b^ {𝛽_0 + 𝛽_1 x_1 + 𝛽_2 x_2}) / (b^ {𝛽_0 + 𝛽_1 x_1 + 𝛽_2 x_2} + 1)$ = $1 / (1 + b^ {-𝛽_0 + 𝛽_1 x_1 + 𝛽_2 x_2})$</p>
 
 </div>
 </div>
@@ -13159,13 +13159,13 @@ l = log_b ( p / (1-p)) = ({\sum} {\beta} &amp; _k x _{k,i}) \\
 <p>Following the technique from (Hastie &amp; Tibshirani, 1986), for logisitic generalized additive models the model was estimated using the local scoring algorithm as follows:</p>
 <ol>
 <li><p>Initialize the current estimate of the additive predictor $n_i^{old}$:<br>
- $n_i^{old} = {\sum} {\beta}_k  X_k$</p>
+ $n_i^{old} = Σ 𝛽_k  X_k$</p>
 <p>and the probability such P(Y=1): $p_i^{old} = exp({n_i^{old}})/(1+exp({n_i^{old}}))$ <br><br></p>
 </li>
 <li><p>Compute the working response: <br></p>
 <p>$z_i = n_i^{old} + (y_i - p_i^{old})/(p_i^{old}(1-p_i^{old}))$<br><br></p>
 </li>
-<li><p>compute weights $w_i = p_i^{old} (1-p_i^{old})<br><br></p>
+<li><p>compute weights $w_i = p_i^{old} (1-p_i^{old})$<br><br></p>
 </li>
 </ol>
 <ol>

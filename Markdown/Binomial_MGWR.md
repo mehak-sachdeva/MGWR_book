@@ -29,21 +29,21 @@ As prefaced earlier, the Geographically Weighted Regression model in PySAL can c
 
 ***
 
-A conventional Logistic regression model with $x_1, x_2, ... ,x_k$ as predictors, a binary(Bernoulli) response variable y and *l* denoting the log-odds if the event that y=1, can be written as:
+A conventional Logistic regression model with $x_1, x_2, ... ,x_k$ as predictors, a binary(Bernoulli) response variable y and l denoting the log-odds of the event that y=1, can be written as:
 
 \begin{align}
 l = log_b ( p / (1-p)) = ({\sum} {\beta} & _k x _{k,i}) \\
 \end{align}
 
-where  $x_{k,1}$ is the kth explanatory variable in place i, ${\beta}_ks$ are the parameters and p is the probability such that p = P( Y = 1 ).
+where  $x_{k,1}$ is the kth explanatory variable in place i, $𝛽_{ks}$ are the parameters and p is the probability such that p = P( Y = 1 ).
 
 By exponentiating the log-odds:
 
-$p / (1-p) = b^ {{\beta_0}+{\beta_1}x_1+{\beta_2}x_2}$
+$p / (1-p) = b^ {𝛽_0+𝛽_1 x_1+𝛽_2 x_2} $
 
 It follows from this - the probability that Y = 1 is:
 
-$p = (b^ {{\beta_0}+{\beta_1}x_1+{\beta_2}x_2}) / (b^ {{\beta_0}+{\beta_1}x_1+{\beta_2}x_2} + 1)$ = $1 / (1 + b^ {{-\beta_0}+{\beta_1}x_1+{\beta_2}x_2})$
+$p = (b^ {𝛽_0 + 𝛽_1 x_1 + 𝛽_2 x_2}) / (b^ {𝛽_0 + 𝛽_1 x_1 + 𝛽_2 x_2} + 1)$ = $1 / (1 + b^ {-𝛽_0 + 𝛽_1 x_1 + 𝛽_2 x_2})$
 
 
 # Local Scoring Algorithm
@@ -53,7 +53,7 @@ $p = (b^ {{\beta_0}+{\beta_1}x_1+{\beta_2}x_2}) / (b^ {{\beta_0}+{\beta_1}x_1+{\
 Following the technique from (Hastie & Tibshirani, 1986), for logisitic generalized additive models the model was estimated using the local scoring algorithm as follows:
 
 1. Initialize the current estimate of the additive predictor $n_i^{old}$:<br>
-    $n_i^{old} = {\sum} {\beta}_k  X_k$ 
+    $n_i^{old} = Σ 𝛽_k  X_k$ 
     
     and the probability such P(Y=1): $p_i^{old} = exp({n_i^{old}})/(1+exp({n_i^{old}}))$ <br><br>
     
@@ -61,7 +61,7 @@ Following the technique from (Hastie & Tibshirani, 1986), for logisitic generali
 
     $z_i = n_i^{old} + (y_i - p_i^{old})/(p_i^{old}(1-p_i^{old}))$<br><br>
     
-3. compute weights $w_i = p_i^{old} (1-p_i^{old})<br><br>
+3. compute weights $w_i = p_i^{old} (1-p_i^{old})$<br><br>
 
 
 4. obtain $n_i^{new}$ by fitting a weighted additive model to $z_i$. In this the smoothers in the backfitting algorithm incorporate the additional weights and GWR is used for the linear parts.<br><br>

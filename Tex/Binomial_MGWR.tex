@@ -330,25 +330,24 @@ model multi-scale process heterogeneity for the open source community.
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
 A conventional Logistic regression model with \(x_1, x_2, ... ,x_k\) as
-predictors, a binary(Bernoulli) response variable y and \emph{l}
-denoting the log-odds if the event that y=1, can be written as:
+predictors, a binary(Bernoulli) response variable y and l denoting the
+log-odds of the event that y=1, can be written as:
 
 \begin{align}
 l = log_b ( p / (1-p)) = ({\sum} {\beta} & _k x _{k,i}) \\
 \end{align}
 
-where \(x_{k,1}\) is the kth explanatory variable in place i,
-\({\beta}_ks\) are the parameters and p is the probability such that p =
-P( Y = 1 ).
+where \(x_{k,1}\) is the kth explanatory variable in place i, \(𝛽_{ks}\)
+are the parameters and p is the probability such that p = P( Y = 1 ).
 
 By exponentiating the log-odds:
 
-\(p / (1-p) = b^ {{\beta_0}+{\beta_1}x_1+{\beta_2}x_2}\)
+\$p / (1-p) = b\^{} \{𝛽\_0+𝛽\_1 x\_1+𝛽\_2 x\_2\} \$
 
 It follows from this - the probability that Y = 1 is:
 
-\(p = (b^ {{\beta_0}+{\beta_1}x_1+{\beta_2}x_2}) / (b^ {{\beta_0}+{\beta_1}x_1+{\beta_2}x_2} + 1)\)
-= \(1 / (1 + b^ {{-\beta_0}+{\beta_1}x_1+{\beta_2}x_2})\)
+\(p = (b^ {𝛽_0 + 𝛽_1 x_1 + 𝛽_2 x_2}) / (b^ {𝛽_0 + 𝛽_1 x_1 + 𝛽_2 x_2} + 1)\)
+= \(1 / (1 + b^ {-𝛽_0 + 𝛽_1 x_1 + 𝛽_2 x_2})\)
 
     \section{Local Scoring Algorithm}\label{local-scoring-algorithm}
 
@@ -362,7 +361,7 @@ scoring algorithm as follows:
 \def\labelenumi{\arabic{enumi}.}
 \item
   Initialize the current estimate of the additive predictor
-  \(n_i^{old}\): \(n_i^{old} = {\sum} {\beta}_k X_k\)
+  \(n_i^{old}\): \(n_i^{old} = Σ 𝛽_k X_k\)
 
   and the probability such P(Y=1):
   \(p_i^{old} = exp({n_i^{old}})/(1+exp({n_i^{old}}))\) 
@@ -371,7 +370,7 @@ scoring algorithm as follows:
 
   \(z_i = n_i^{old} + (y_i - p_i^{old})/(p_i^{old}(1-p_i^{old}))\)
 \item
-  compute weights \$w\_i = p\_i\^{}\{old\} (1-p\_i\^{}\{old\})
+  compute weights \(w_i = p_i^{old} (1-p_i^{old})\)
 \item
   obtain \(n_i^{new}\) by fitting a weighted additive model to \(z_i\).
   In this the smoothers in the backfitting algorithm incorporate the
