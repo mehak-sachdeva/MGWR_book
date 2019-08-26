@@ -15,6 +15,8 @@ The model has been explored and tested for multiple parameters on real and simul
 - [Notebooks with tests](#Notebooks-with-Tests)
 - [References](#References)
 
+[Back to the main page](https://mehak-sachdeva.github.io/MGWR_book/)
+
 ---
 
 # Introduction
@@ -146,3 +148,5 @@ As an exploration, this work includes results from both adding a stochastic erro
 
 
 4. Wood, S. N. (2006). Generalized additive models : an introduction with R. Chapman & Hall/CRC.
+
+[Back to the main page](https://mehak-sachdeva.github.io/MGWR_book/)
