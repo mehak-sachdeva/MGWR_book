@@ -7,7 +7,7 @@ The model has been explored and tested for multiple parameters on real and simul
 
 **Notebook Outline:**  
   
-**[Introduction (current)](Poisson_MGWR.ipynb)**
+**Introduction (current)**
 - [Introduction](#Introduction)
  - [Introduction to the problem](#Introduction-to-the-project)
  - [Statistical Equations](#Statistical-Equations) 
@@ -139,8 +139,3 @@ Below are links to the tests and exploration for the finalized MGWR model for Po
 
 
 5. Wood, S. N. (2006). Generalized additive models : an introduction with R. Chapman & Hall/CRC.
-
-
-```python
-
-```

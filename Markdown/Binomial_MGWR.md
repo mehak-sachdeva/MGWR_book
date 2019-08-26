@@ -7,7 +7,7 @@ The model has been explored and tested for multiple parameters on real and simul
 
 **Notebook Outline:**  
   
-**[Introduction Notebook (current)](Poisson_MGWR.ipynb)**
+**Introduction Notebook (current)**
 - [Introduction](#Introduction)
  - [Introduction to the project](#Introduction-to-the-project)
  - [Statistical Equations](#Statistical-Equations) 
