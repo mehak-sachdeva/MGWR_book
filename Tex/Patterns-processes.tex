@@ -149,7 +149,7 @@
     \renewcommand{\LaTeX}{\textrm{\Oldlatex}}
     % Document parameters
     % Document title
-    \title{Index}
+    \title{Patterns-processes}
     
     
     
@@ -292,89 +292,92 @@
     
     \#
 
-Multiscale Geographically Weighted RegressionUCGIS Symposium Workshop -
-2020
+Spatial Patterns and Spatial Processes
 
-    Mehak Sachdeva
+\textbf{Notebook Outline:}
 
-Spatial Analysis Research Center
+\textbf{Introduction Notebook (current)} - Section \ref{introduction} -
+Section \ref{introduction-to-the-project} -
+Section \ref{conceptual-examples-of-spatial-associations} -
+Section \ref{new-york-skyline-example} -
+Section \ref{human-migration-example}
 
-School of Geographical Sciences and Urban Planning
+\href{https://mehak-sachdeva.github.io/MGWR_workshop_book/}{Back to the
+main page}
 
-Arizona State University
-
-Presented on 6/3/2020 - UCGIS Symposium Workshop
-
-    \subsubsection{Goal}\label{goal}
-
-\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
-
-The overall goal of the workshop is to introduce participants to
-multiscale spatial modeling and engage in a discussion of the scale of
-geographic processes and their measurement. Multiscale Geographically
-Weighted Regression (MGWR) is a cutting-edge modeling technique which
-integrates both nomothetic and ideographic approaches in geography and
-allows a more nuanced interpretation of place and space. Participants
-will be introduced to the field of local modeling and the opportunities
-it presents to measure the scale at which geographic processes operate.
-Participants will also complete hands-on training in the use of MGWR in
-research, and will be encouraged to use the provided code for their own
-future research.
-
-    \subsubsection{Table of Contents}\label{table-of-contents}
+    \section{Introduction}\label{introduction}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
- Topics 1.
-\textbf{\href{http://mehak-sachdeva.github.io/MGWR_workshop_book/Html/Patterns-processes}{Spatial
-Patterns and Processes}}
+\subsection{Introduction to the
+problem}\label{introduction-to-the-problem}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{1}
-\item
-  \textbf{\href{http://mehak-sachdeva.github.io/MGWR_workshop_book/Html/Regression-models}{Regression
-  Models - The why and the how}}
-\item
-  \textbf{\href{http://mehak-sachdeva.github.io/MGWR_workshop_book/Html/Methodology}{Methodological
-  Review - GWR and MGWR}}
-\item
-  \textbf{\href{http://mehak-sachdeva.github.io/MGWR_workshop_book/Html/Example}{Hands-on
-  Example with MGWR}}
-\item
-  \textbf{\href{http://mehak-sachdeva.github.io/MGWR_workshop_book/Html/Interpretation}{Interpretation
-  and Understanding Outputs}}
-\item
-  \textbf{\href{http://mehak-sachdeva.github.io/MGWR_workshop_book/Html/Mapping}{Mapping
-  Parameter Coefficients}}
-\end{enumerate}
+The spatial data that we observe in the world around us are
+manifestations of underlying spatial processes. To understand why things
+are the way they are and how they work, we often model estimates of the
+spatial processes that affect the spatial patterns we observe. The
+spatial associations or relationships that we model between spatial
+processes and pattern data help inform on the spatial processes which
+cannot be directly observed.
 
-    \subsubsection{Resources}\label{resources}
+    
+
+    \section{Conceptual examples of spatial
+associations}\label{conceptual-examples-of-spatial-associations}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
-\textbf{Github book resource:
-https://mehak-sachdeva.github.io/MGWR\_workshop\_book/} \textbf{Download
-the software here: https://sgsup.asu.edu/sparc/mgwr} \textbf{Data used
-in the software:
-\href{http://msachdeva.cartodb.com/api/v2/sql?filename=example_dataset\&format=csv\&q=SELECT+*+FROM+census_tracts_final+as+example_data}{Direct
-download link}} \textbf{Python open-source package:
-https://github.com/pysal/mgwr} 
-
-    \subsubsection{Acknowledgements}\label{acknowledgements}
+\subsection{New York Skyline example}\label{new-york-skyline-example}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
-\begin{itemize}
-\item
-  Professor Stewart Fotheringham and Professor Peter Kedron for immense
-  help in building the workshop material 
-\item
-  MGWR Development Team: Ziqi Li, Taylor Oshan, Stewart Fotheringham,
-  Wei Kang, Levi Wolf, Hanchen Yu, Mehak Sachdeva, and Sarah Bardin
-  (Spatial Analysis Research Center (SPARC),Arizona State University,
-  Tempe, USA)
-\end{itemize}
+Above is a cross-sectional view of the Manhattan skyline. As we can
+observe, downtown and midtown have a heavy concentration of high-rise
+buildings while the areas between the two have mostly mid-rise
+buildings. This is clearly an observed pattern which is possibly a
+result of many underlying processes that make construction of higher
+buildings more viable in some areas compared to others.
+
+    
+
+    \paragraph{Underlying processes affecting density of high-rises in
+Manhattan}\label{underlying-processes-affecting-density-of-high-rises-in-manhattan}
+
+On a closer and deeper look into the geography of Manhattan it can be
+seen that the bedrock of the borough is a major driver in the city's
+uneven density of high-rise buildings. In this simple example we see how
+the sub-strata of Manhattan, \textbf{a spatial process} otherwise
+invisible, manifests itself into the defining skyline of the city,
+\textbf{the observed spatial pattern}. Such associations are often
+helpful to model in order to understand what forms and affects the
+spatial data we observe in the world.
+
+    \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+    \subsection{Human Migration example}\label{human-migration-example}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+Migration is a complex social phenomenon and is often a result of many
+processes, often operating at different spatial scales. For example, if
+a massive movement of people from one city to another is observed and we
+are interested in understanding what could be leading to the
+displacement, trying to model the processes that could be affecting it
+would be a good approach. For instance, a political conflict at a local
+scale could be forcing people to move out of a city, or lack of economic
+opportunity due to restrictive policies at the regional scale could be
+affecting it. Or something even more complex such as climate change
+which is a global phenomena could be leading to either or both of these
+issues and affecting human migration.
+
+    
+
+    This example, brings to the forefront the issue of \textbf{spatial scale
+of processes} that affect the pattern we observe. There is no way of
+understanding human migration if processes operating at different scales
+are not considered and the scales at which the processes most affect the
+pattern are unknown. This is true for most of the complex phenomena we
+observe in the world.
 
 
     % Add a bibliography block to the postdoc

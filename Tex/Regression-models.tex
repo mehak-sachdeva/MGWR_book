@@ -149,7 +149,7 @@
     \renewcommand{\LaTeX}{\textrm{\Oldlatex}}
     % Document parameters
     % Document title
-    \title{Index}
+    \title{Regression-models}
     
     
     
@@ -292,89 +292,93 @@
     
     \#
 
-Multiscale Geographically Weighted RegressionUCGIS Symposium Workshop -
-2020
+Regression Models - The why and the how
 
-    Mehak Sachdeva
+\textbf{Notebook Outline:}
 
-Spatial Analysis Research Center
+\textbf{Regression Models} - Section \ref{introduction} -
+Section \ref{hedonic-house-price-models} -
+Section \ref{spatial-dependency-and-heterogeneity}
 
-School of Geographical Sciences and Urban Planning
+\href{https://mehak-sachdeva.github.io/MGWR_workshop_book/}{Back to the
+main page}
 
-Arizona State University
-
-Presented on 6/3/2020 - UCGIS Symposium Workshop
-
-    \subsubsection{Goal}\label{goal}
+    \section{Introduction}\label{introduction}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
-The overall goal of the workshop is to introduce participants to
-multiscale spatial modeling and engage in a discussion of the scale of
-geographic processes and their measurement. Multiscale Geographically
-Weighted Regression (MGWR) is a cutting-edge modeling technique which
-integrates both nomothetic and ideographic approaches in geography and
-allows a more nuanced interpretation of place and space. Participants
-will be introduced to the field of local modeling and the opportunities
-it presents to measure the scale at which geographic processes operate.
-Participants will also complete hands-on training in the use of MGWR in
-research, and will be encouraged to use the provided code for their own
-future research.
+Models often used to estimate relationships between processes and how
+they affect the spatial data we observe in the world are broadly
+classified under the umbrella of \textbf{regression}. Let's jump right
+into the problem we are going to work on in this workshop and understand
+the concepts of regression while working through it.
 
-    \subsubsection{Table of Contents}\label{table-of-contents}
+    \section{Hedonic House Price Models}\label{hedonic-house-price-models}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
- Topics 1.
-\textbf{\href{http://mehak-sachdeva.github.io/MGWR_workshop_book/Html/Patterns-processes}{Spatial
-Patterns and Processes}}
+Since the value of the attributes of a housing unit cannot be directly
+measured, a method called the hedonic modeling is applied to a housing
+unit price such that it could be decomposed into estimated prices for
+various characteristics - structural, neighborhood and locational. A
+typical house price model can be written as:
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{1}
-\item
-  \textbf{\href{http://mehak-sachdeva.github.io/MGWR_workshop_book/Html/Regression-models}{Regression
-  Models - The why and the how}}
-\item
-  \textbf{\href{http://mehak-sachdeva.github.io/MGWR_workshop_book/Html/Methodology}{Methodological
-  Review - GWR and MGWR}}
-\item
-  \textbf{\href{http://mehak-sachdeva.github.io/MGWR_workshop_book/Html/Example}{Hands-on
-  Example with MGWR}}
-\item
-  \textbf{\href{http://mehak-sachdeva.github.io/MGWR_workshop_book/Html/Interpretation}{Interpretation
-  and Understanding Outputs}}
-\item
-  \textbf{\href{http://mehak-sachdeva.github.io/MGWR_workshop_book/Html/Mapping}{Mapping
-  Parameter Coefficients}}
-\end{enumerate}
+    
 
-    \subsubsection{Resources}\label{resources}
+    The \emph{Xs} are the \textbf{independent variables} that affect the
+dependent variable \emph{y} or \textbf{observed patterns} with the
+magnitude and direction modeled by the \emph{Betas} which are the
+measure of \textbf{processes} affecting the dependent variable. These
+are the coefficient estimates that define how much and in what direction
+these processes affect the pattern.
 
-\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+For example, in the equation above if the beta assumes a value of + 5,
+this would be interpreted as the change in house price expected with an
+increase of living area by one unit. Consquently, if we have house price
+data for a city, we can easily understand how increase in living area
+and other such attributes of a housing unit would affect house prices in
+the region.
 
-\textbf{Github book resource:
-https://mehak-sachdeva.github.io/MGWR\_workshop\_book/} \textbf{Download
-the software here: https://sgsup.asu.edu/sparc/mgwr} \textbf{Data used
-in the software:
-\href{http://msachdeva.cartodb.com/api/v2/sql?filename=example_dataset\&format=csv\&q=SELECT+*+FROM+census_tracts_final+as+example_data}{Direct
-download link}} \textbf{Python open-source package:
-https://github.com/pysal/mgwr} 
+\textbf{However, can you see the obvious limitation in using this
+equation for the data of an entire city?}
 
-    \subsubsection{Acknowledgements}\label{acknowledgements}
+    \section{Spatial Dependency and
+Heterogeneity}\label{spatial-dependency-and-heterogeneity}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
-\begin{itemize}
-\item
-  Professor Stewart Fotheringham and Professor Peter Kedron for immense
-  help in building the workshop material 
-\item
-  MGWR Development Team: Ziqi Li, Taylor Oshan, Stewart Fotheringham,
-  Wei Kang, Levi Wolf, Hanchen Yu, Mehak Sachdeva, and Sarah Bardin
-  (Spatial Analysis Research Center (SPARC),Arizona State University,
-  Tempe, USA)
-\end{itemize}
+In the equation above, the betas or the measure of processes affecting
+the patterns are averages across the entire study area! This would
+suggest that an increase in living area of a housing unit would affect
+the house price of the unit by the exact same amount no matter where the
+unit is located in the city. Is that a fair assumption?
+
+\textbf{For instance, would you expect the size of a housing unit to
+have the same marginal cost in Manhattan as compared to that in Staten
+Island?}
+
+    \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+    \#\#\#\# \textbf{Perhaps, not.}
+
+Spatial phenomenon exhibit spatial heterogeneity that is, we expect
+values to be higher in some places and lower in others. In the context
+of house prices in a city for example, housing units with the same
+structural characteristics are valued differently in different areas of
+a city. This would then imply that the same stimulus across a city such
+as an increase in living area of a housing unit, would affect the
+housing cost differently in different areas. For example, a more
+accurate map of the marginal cost of living area in New York City would
+be as below - where adding a unit square feet of space in downtown
+Manhattan would increase the housing price by a lot more than that in
+Staten Island.
+
+    
+
+    \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\emph{Please note, the mapped estimates below are only
+representational.}
 
 
     % Add a bibliography block to the postdoc
